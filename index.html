@@ -1,0 +1,107 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priscilla ✦</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="background-glow glow1"></div>
+    <div class="background-glow glow2"></div>
+    <div class="background-glow glow3"></div>
+
+    <div class="container">
+
+        <div class="glass-card">
+
+            
+
+            <h1>Priscilla</h1>
+
+           
+
+            <button id="startBtn">
+                PRESS TO LESSSGOOO BBG
+            </button>
+
+        </div>
+
+    </div>
+
+    <div id="messages"></div>
+
+
+    <script>
+
+        const button = document.getElementById("startBtn");
+        const messages = document.getElementById("messages");
+        const counter = document.getElementById("counter");
+
+        button.addEventListener("click", () => {
+
+            button.disabled = true;
+            button.textContent = "LESSSS GOOOO...";
+
+            let count = 0;
+            const total = 1000;
+
+            function generateBatch() {
+
+                for (let i = 0; i < 15 && count < total; i++) {
+
+                    count++;
+
+                    const message = document.createElement("div");
+
+                    message.className = "cute-text";
+                    message.textContent = "Priscilla is the cutest";
+
+                    const x = Math.random() * 90 + 5;
+                    const y = Math.random() * 90 + 5;
+
+                    message.style.left = x + "%";
+                    message.style.top = y + "%";
+
+                    const rotation =
+                        Math.random() * 16 - 8;
+
+                    message.style.setProperty(
+                        "--rotation",
+                        rotation + "deg"
+                    );
+
+                    message.style.animationDelay =
+                        Math.random() * 0.5 + "s";
+
+                    messages.appendChild(message);
+                }
+
+                counter.textContent = `${count} / ${total}`;
+
+                if (count < total) {
+
+                    setTimeout(generateBatch, 30);
+
+                } else {
+
+                    button.textContent =
+                        "SHE IS THE CUTEST. PERIOD.";
+
+                    button.disabled = false;
+                }
+            }
+
+            generateBatch();
+
+        });
+
+    </script>
+
+</body>
+</html>
+```
